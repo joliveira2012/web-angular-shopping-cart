@@ -1,12 +1,11 @@
 <h2>Products</h2>
-<!-- *ngFor -->
+<!-- *ngFor (diretiva que faz um for *ngFor seguindo a diretiva js da string subsequente) (transforma o index in productID)-->
 <div *ngFor="let product of products; index as productId">
-
   <h3>
-    <!-- Property binding [ ] -->
+    <!-- Property binding [ ] (fazendo o title receber as infos do js)-->
     <!-- router link -->
     <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-      <!-- Interpolation {{ }} -->
+      <!-- Interpolation {{ }} /  mostra um dado do produto do for-->
       {{ product.name }}
     </a>
   </h3>
@@ -16,11 +15,12 @@
     Description: {{ product.description }}
   </p>
 
-  <!-- Event binding ( ) -->
+  <!-- Event binding ( ) (fazendo chamar o metodo share da .ts)-->
    <button (click)="share()">
     Share
   </button>
 
+  <!--Input ptoduct (passa valor do produto/ output onNotify (devolve))-->
   <app-product-alerts
     [product]="product"
     (notify)="onNotify()">
